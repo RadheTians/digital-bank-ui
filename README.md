@@ -68,4 +68,4 @@ For connecting to server running elsewhere update the target API URLs in the `pr
 
 ## Want to help? [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/openMF/digital-bank-ui/issues)
 
-Want to file a bug, request a feature, contribute some code, or improve documentation? Excellent! Read up on our guidelines for contributing and then check out one of our [issues](https://github.com/openMF/digital-bank-ui/issues). Make sure you follow the guidelines before sending a contribution!
+Want to file a bug, request a feature, contribute some code, or improve documentation? Excellent! Read up on our [guidelines](https://github.com/RadheTians/digital-bank-ui/blob/doc/CONTRIBUTING.md) for contributing and then check out one of our [issues](https://github.com/openMF/digital-bank-ui/issues). Make sure you follow the guidelines before sending a contribution!
