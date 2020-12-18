@@ -13,7 +13,7 @@
 This project will require a few days for getting used to, and understanding what's happening.
 Also, you don't have to run fineract CN in your local, we are using a hosted instance of fineract CN, which has a few microservices hosted at buffalo.mifos URL. Check out https://github.com/openMF/digital-bank-ui/blob/master/proxy.conf.json
 
-Also take time to learn about rxjs, ngrx store and redux store in general, and also what we are trying to do in this project. Play around with the UI a bit on your machine.
+Also take time to learn about [rxjs](https://angular.io/guide/rx-library), [ngrx](https://ngrx.io/docs) store and [redux](https://redux.js.org/introduction/getting-started) store in general, and also what we are trying to do in this project. Play around with the UI a bit on your machine.
 
 Helpful Links:  
 Roadmap for future progress (tentative): https://github.com/openMF/digital-bank-ui/wiki/Roadmap-for-future-progress
