@@ -2,13 +2,19 @@
 
 ## Take Your First Steps
 
-- Try going through the project requirements and the code. See wiki and milestones etc.
-- Run it in your local.
+- Try going through the project requiremnts and the code. See wiki and milestones etc.
+- Run it in your local and login using below credentials.
+
+      Tenant: tn01
+      Username: interopUser
+      Password: 12345678
+- Don't change above login credentials create your own by visiting into Admin/Users
 - Join the [discord](https://gitter.im/openMF/digital-bank-ui) for this project.
 - Try understanding the project code, we are using rxjs and ngrx store, which might be a new thing for you.
 - Go through the code and start finding bugs, there are tons of bugs currently. Make issues for those bugs and raise pr, like smaller css issues, or code refactoring. We need a lot of refactoring, go through angular best practices and see what code can be refactored.
 - Then maybe work on some functionality issues.
 - You don't have to make a lot of pr's, just focus on quality of pr's.
+- Create a [taiko](https://github.com/getgauge/taiko) test to consolidate your pr's
 
 This project will require a few days for getting used to, and understanding what's happening.
 Also, you don't have to run fineract CN in your local, we are using a hosted instance of fineract CN, which has a few microservices hosted at buffalo.mifos URL. Check out https://github.com/openMF/digital-bank-ui/blob/master/proxy.conf.json
