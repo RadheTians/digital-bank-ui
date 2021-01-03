@@ -5,6 +5,7 @@ import { Office } from '../../../services/office/domain/office.model';
 import { FimsValidators } from '../../common/validator/validators';
 import { Address } from '../../../services/domain/address/address.model';
 import { AddressFormComponent } from '../../common/address/address.component';
+import { OfficeService } from "../../../services/office/office.service";
 
 @Component({
   selector: 'ngx-office-form',
@@ -15,6 +16,7 @@ export class OfficeFormComponent implements OnInit {
   private _office: Office;
   detailForm: FormGroup;
   title: String;
+  parentBranches: Office[];
 
   @ViewChild('addressForm') addressForm: AddressFormComponent;
   addressFormData: Address;
@@ -30,12 +32,13 @@ export class OfficeFormComponent implements OnInit {
 
   @Output() onCancel = new EventEmitter<void>();
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute) {}
+  constructor(private formBuilder: FormBuilder, private officeService: OfficeService, private route: ActivatedRoute) {}
 
   prepareForm(office: Office): void {
     this.detailForm = this.formBuilder.group({
       identifier: [office.identifier, [Validators.required, Validators.minLength(3), Validators.maxLength(32), FimsValidators.urlSafe]],
       name: [office.name, [Validators.required, Validators.maxLength(256)]],
+      parentIdentifier: [office.parentIdentifier, [Validators.required, Validators.minLength(3), Validators.maxLength(32), FimsValidators.urlSafe]],
       description: [office.description, Validators.maxLength(2048)],
     });
     this.addressFormData = office.address;
@@ -49,6 +52,10 @@ export class OfficeFormComponent implements OnInit {
     return this.detailForm.get('name');
   }
 
+  get parentIdentifier() {
+    return this.detailForm.get('parentIdentifier');
+  }
+
   get description() {
     return this.detailForm.get('description');
   }
@@ -57,8 +64,9 @@ export class OfficeFormComponent implements OnInit {
     this.route.data.subscribe((data: any) => {
       this.title = data.title;
     });
+    this.officeService.listAllOffices().subscribe((data => this.parentBranches = data.offices));
   }
-
+ 
   get isValid(): boolean {
     if (this.addressForm && this.detailForm) return this.addressForm.valid && this.detailForm.valid;
     else return false;
@@ -68,6 +76,7 @@ export class OfficeFormComponent implements OnInit {
     const office: Office = {
       identifier: this.detailForm.get('identifier').value,
       name: this.detailForm.get('name').value,
+      parentIdentifier: this.detailForm.get('parentIdentifier').value,
       description: this.detailForm.get('description').value,
     };
 

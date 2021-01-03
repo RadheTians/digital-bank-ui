@@ -29,6 +29,20 @@
             </div>
 
             <div class="form-group row">
+              <label for="parentIdentifier" class="label col-sm-3 form-control-label">Parent Branch</label>
+              <div class="col-sm-9 selector">
+                <nb-select id="parentIdentifier" formControlName="parentIdentifier" placeholder="Parent Branch">
+                  <nb-option *ngFor="let branch of parentBranches" [value]="branch.identifier">
+                    {{ branch.identifier }}
+                  </nb-option>
+                </nb-select>
+                <div *ngIf="parentIdentifier.invalid && (parentIdentifier.dirty || parentIdentifier.touched)">
+                  <div *ngIf="parentIdentifier.hasError('required')" class="caption status-danger ng-star-inserted"> Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
               <label for="description" class="label col-sm-3 form-control-label">Description</label>
               <div class="col-sm-9">
                 <textarea id="description" nbInput placeholder="Description(optional)"
